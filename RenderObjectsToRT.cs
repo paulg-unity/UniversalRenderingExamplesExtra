@@ -2,7 +2,7 @@ using System;
 using UnityEngine.Rendering.LWRP;
 using UnityEngine.Rendering;
 
-namespace UnityEngine.Experimental.Rendering.LWRP
+namespace UnityEngine.Rendering.Universal
 {
     public enum RenderQueueType
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.Rendering.LWRP;
 using UnityEngine.Rendering;
 
-namespace UnityEngine.Experimental.Rendering.LWRP
+namespace UnityEngine.Rendering.Universal
 {
     public class RenderObjectsToRTPass : ScriptableRenderPass
     {
@@ -62,13 +62,14 @@ namespace UnityEngine.Experimental.Rendering.LWRP
                 : RenderQueueRange.opaque;
             m_FilteringSettings = new FilteringSettings(renderQueueRange, layerMask, renderLayerMask);
 
-            if (shaderTags != null && shaderTags.Length > 0)
+           if (shaderTags != null && shaderTags.Length > 0)
             {
                 foreach (var passName in shaderTags)
                     m_ShaderTagIdList.Add(new ShaderTagId(passName));
             }
             else
             {
+                m_ShaderTagIdList.Add(new ShaderTagId("UniversalForward"));
                 m_ShaderTagIdList.Add(new ShaderTagId("LightweightForward"));
                 m_ShaderTagIdList.Add(new ShaderTagId("SRPDefaultUnlit"));
             }
